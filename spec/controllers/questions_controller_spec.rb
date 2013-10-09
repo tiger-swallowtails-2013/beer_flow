@@ -22,6 +22,7 @@ describe QuestionsController do
 
   describe 'GET show' do
     let(:new_question) { FactoryGirl.create(:question) }
+
     it 'shows individual question' do
       get :show, :id => new_question.id
       expect(assigns(:question)).to eq(new_question)

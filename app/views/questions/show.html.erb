@@ -1,2 +1,5 @@
 <%= @question.title %>
 <%= @question.body %>
+<% @question.answers.each |answer| %>
+  <%= answer.body %>
+<% end %>
