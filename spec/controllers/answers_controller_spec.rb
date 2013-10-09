@@ -11,4 +11,12 @@ describe AnswersController do
     end
   end
 
+  describe "POST create" do
+    it "should create a new post" do
+    expect{
+      post :create, answer: FactoryGirl.attributes_for(:answer)
+      }.to change(Answer,:count).by(1)
+    end
+  end
+
 end
