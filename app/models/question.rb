@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
   attr_accessible :title, :body
-  validates_presence_of :title, :body
+  belongs_to :user
+  validates_presence_of :title
+  validates_presence_of :body
 end
