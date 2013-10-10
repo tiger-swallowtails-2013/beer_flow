@@ -1,6 +1,8 @@
 <%= @question.title %>
+<br>
 <%= @question.body %>
 <% @question.answers.each do|answer| %>
+  <br>
   <%= answer.body %>
 <% end %>
 
