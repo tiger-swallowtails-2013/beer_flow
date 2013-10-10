@@ -1,5 +1,7 @@
 <%= @question.title %>
 <%= @question.body %>
-<% @question.answers.each |answer| %>
+<% @question.answers.each do|answer| %>
   <%= answer.body %>
 <% end %>
+
+<%= render partial: 'answers/inline_form' %>

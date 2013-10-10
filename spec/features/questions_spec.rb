@@ -2,7 +2,7 @@ require 'spec_helper'
 
 feature 'submit new question' do
   let(:new_question) { FactoryGirl.build(:question)}
-  it "displays question after adding it" do
+  it "enters the proper data into the form" do
     expect{
       visit new_question_path
       fill_in 'question[title]', with: new_question.title
