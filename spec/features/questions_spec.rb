@@ -10,11 +10,17 @@ feature 'submit new question' do
   end
 end
 
-feature 'discussion list' do
-  let!(:new_question) { FactoryGirl.create(:question)}
-  scenario 'discussion links to discussion page' do
+feature 'question links' do
+  let!(:question_on_page) { FactoryGirl.create(:question)}
+  scenario 'clicks question title' do
     visit questions_path
-    click_link "#{new_question.title}"
-    expect(page) == question_path(new_question.id)
+    click_link "#{question_on_page.title}"
+    expect(page) == question_path(question_on_page.id)
+  end
+
+  scenario 'clicks new question button' do
+    visit questions_path
+    click_button "New Question"
+    expect(page) == new_question_path
   end
 end
