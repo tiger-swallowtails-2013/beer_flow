@@ -22,6 +22,7 @@ describe QuestionsController do
 
   describe 'GET show' do
     let(:new_question) { FactoryGirl.create(:question) }
+
     it 'shows individual question' do
       get :show, :id => new_question.id
       expect(assigns(:question)).to eq(new_question)
@@ -29,6 +30,15 @@ describe QuestionsController do
 
     it 'renders correct page' do
       expect(get :show, :id=> new_question.id).to render_template :show, :id=> new_question.id
+    end
+  end
+
+  describe 'GET index' do
+    let!(:new_question) { FactoryGirl.create(:question) }
+
+    it "assigns @questions" do
+       get :index
+       expect(assigns(:questions)).to eq([new_question])
     end
   end
 end
