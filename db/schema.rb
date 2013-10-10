@@ -16,8 +16,9 @@ ActiveRecord::Schema.define(:version => 20131009192637) do
   create_table "answers", :force => true do |t|
     t.string   "body"
     t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "question_id"
   end
 
   create_table "questions", :force => true do |t|

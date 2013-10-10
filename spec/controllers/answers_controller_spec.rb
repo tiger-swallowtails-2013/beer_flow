@@ -2,20 +2,20 @@ require 'spec_helper'
 
 describe AnswersController do
 
-  describe 'GET show' do
-    let(:new_answer) { FactoryGirl.create(:answer) }
-
-    it "should show specific answer" do
-      get :show, :id => new_answer.id
-      expect(assigns(:answer)).to eq(new_answer)
-    end
-  end
-
   describe "POST create" do
-    it "should create a new post" do
-    expect{
-      post :create, answer: FactoryGirl.attributes_for(:answer)
-      }.to change(Answer,:count).by(1)
+    let(:new_answer) { FactoryGirl.build(:answer) }
+    before :each do
+      post :create, answer: {body: new_answer.body, question_id: new_answer.question_id}
+    end
+
+    it "should create a new answer" do
+      expect(assigns(:answer).body).to eq(new_answer.body)
+    end
+    it "should be associated with a question" do
+      expect(assigns(:answer).question).to be_a(Question)
+    end
+    it "should redirect back to associated question page" do
+      expect(response).to redirect_to question_path(new_answer.question)
     end
   end
 
