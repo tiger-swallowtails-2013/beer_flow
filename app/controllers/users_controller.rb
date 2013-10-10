@@ -15,4 +15,14 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
+  def signin
+
+  end
+
+  def signout
+    if @user
+      redirect_to users_signout_path
+    end
+  end
 end
