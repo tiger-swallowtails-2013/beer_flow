@@ -36,4 +36,23 @@ describe UsersController do
       expect(get :show, id: new_user.id).to render_template :show, id: new_user.id
     end
   end
+
+  describe 'POST to authenticate' do
+    let(:user1) { FactoryGirl.create(:user)}
+    context "fail" do
+      it 'routes to the signin page when authenticate is false' do
+        expect(post :authenticate, :user => { username: "test", password: "password" }).to redirect_to users_signin_path
+      end
+    end
+
+    context "success" do
+      it 'routes to authenticate path when user input is valid' do
+        expect(post :authenticate, :user  => {username: user1.username, password: user1.password}).to redirect_to root_path
+      end
+      it "records session data if user sucessfully logs in" do
+        post :authenticate, :user  => {username: user1.username, password: user1.password}
+        expect(session).to include(user_id: user1.id)
+      end
+    end
+  end
 end
