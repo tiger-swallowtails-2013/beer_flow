@@ -7,6 +7,12 @@ feature 'navigation bar' do
     expect(page) == root_path
   end
 
+  scenario "clicks sign-in" do
+    visit questions_path
+    click_link "Sign In"
+    expect(page) == users_signin_path
+  end
+
   scenario "clicks sign-out" do
     visit questions_path
     click_link "Sign Out"

@@ -17,12 +17,6 @@ class UsersController < ApplicationController
   end
 
   def signin
-
-  end
-
-  def signout
-    if @user
-      redirect_to users_signout_path
-    end
+    @user = User.new
   end
 end
