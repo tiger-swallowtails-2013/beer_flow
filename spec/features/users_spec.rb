@@ -8,6 +8,7 @@ feature 'user creation' do
     fill_in 'user[password]', with: new_user.password
     fill_in 'user[password_confirmation]', with: new_user.password
     expect { click_button 'Create User' }.to change(User, :count).by(1)
+    expect(page) == (user_path(User.last.id))
   end
 
   scenario 'without password confirmation' do
@@ -15,5 +16,6 @@ feature 'user creation' do
     fill_in 'user[username]', with: new_user.username
     fill_in 'user[password]', with: new_user.password
     expect { click_button 'Create User' }.to_not change(User, :count).by(1)
+    expect(page) == new_user_path
   end
 end
