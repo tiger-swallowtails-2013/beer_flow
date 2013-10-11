@@ -15,4 +15,13 @@ describe SessionsController do
       expect(response).to redirect_to user_path(new_user)
     end
   end
+
+  describe 'DELETE #destroy' do
+    let!(:user) { FactoryGirl.create(:user) }
+    it 'ends the current session' do
+      post :create, session: { username: user.username, password: user.password }
+      delete :destroy, session
+      expect(controller.current_user).to be_nil
+    end
+  end
 end
