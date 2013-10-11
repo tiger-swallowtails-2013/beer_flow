@@ -20,7 +20,7 @@ describe SessionsController do
     let!(:user) { FactoryGirl.create(:user) }
     it 'ends the current session' do
       post :create, session: { username: user.username, password: user.password }
-      delete :destroy, session
+      delete :destroy
       expect(controller.current_user).to be_nil
     end
   end
