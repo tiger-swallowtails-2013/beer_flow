@@ -17,7 +17,7 @@ describe UsersController do
     end
 
     it 'renders correct page when user info is invalid' do
-      expect(post :create, :user => { id: new_user.id }).to redirect_to new_user_path
+      expect(post :create, :user => { id: new_user.id }).to redirect_to users_signin_path
     end
 
     it 'renders correct page when user info is valid' do
@@ -38,21 +38,21 @@ describe UsersController do
   end
 
   describe 'POST to authenticate' do
-    let(:user1) { FactoryGirl.create(:user)}
+    # let!(:user1) { FactoryGirl.create(:user)}
     context "fail" do
       it 'routes to the signin page when authenticate is false' do
-        expect(post :authenticate, :user => { username: "test", password: "password" }).to redirect_to users_signin_path
+        expect(post :create, :user => { username: nil, password: "password" }).to redirect_to users_signin_path
       end
     end
 
     context "success" do
+       # let!(:user2) { FactoryGirl.create(:user)}
       it 'routes to authenticate path when user input is valid' do
-        expect(post :authenticate, :user  => {username: user1.username, password: user1.password}).to redirect_to root_path
+        p "!!"
+        # p user2.id
+        expect(post :create, :user  => { username: "new name", password: "user2.password", password_confirmation: "user2.password" }).to redirect_to users_path
       end
-      it "records session data if user sucessfully logs in" do
-        post :authenticate, :user  => {username: user1.username, password: user1.password}
-        expect(session).to include(user_id: user1.id)
-      end
+
     end
   end
 end
