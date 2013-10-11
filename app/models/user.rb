@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   has_many :questions
   has_many :answers
   validates_presence_of :username, :password, :password_confirmation
+
+  def check_if_password_valid(password)
+    self.password == password
+  end
 end

@@ -1,9 +1,12 @@
 BeerFlow::Application.routes.draw do
 
-  resources :users, except: [:index, :edit, :update, :destroy]
-  resources :answers, except: [:index, :new, :edit, :update, :destroy, :show]
-  resources :questions, except: [:destroy, :update, :edit]
+  resources :users, only: [:new, :create, :show]
+  resources :questions, only: [:new, :create, :show, :index]
+  resources :answers, only: [:create]
 
+  resources :sessions, only: [:new, :create]
+
+  get "logout", to: "sessions#destroy"
   root to: 'questions#index'
 
 end
