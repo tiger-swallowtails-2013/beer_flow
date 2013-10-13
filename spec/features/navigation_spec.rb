@@ -13,24 +13,28 @@ feature 'visitor navigation bar' do
 
   scenario 'should hide login and signup links once signed in' do
   	new_user = FactoryGirl.create(:user)
-    visit new_user_path
-    fill_in 'user[username]', with: new_user.username
-    fill_in 'user[password]', with: new_user.password
-    fill_in 'user[password_confirmation]', with: new_user.password
-    click_button 'Create User'
+
+    visit new_session_path
+    fill_in 'session[username]', with: new_user.username
+    fill_in 'session[password]', with: new_user.password
+    fill_in 'session[password_confirmation]', with: new_user.password
+    click_button 'Sign In'
     expect(page).to_not have_link('Sign Up')
-    expect(page).to_not have_link('Sign Up')
+    expect(page).to_not have_link('Login')
+
   end
 end
 
 feature 'visitor is browsing as signed in user' do
   before do
     new_user = FactoryGirl.create(:user)
-    visit new_user_path
-    fill_in 'user[username]', with: new_user.username
-    fill_in 'user[password]', with: new_user.password
-    fill_in 'user[password_confirmation]', with: new_user.password
-    click_button 'Create User'
+
+    visit new_session_path
+    fill_in 'session[username]', with: new_user.username
+    fill_in 'session[password]', with: new_user.password
+    fill_in 'session[password_confirmation]', with: new_user.password
+    click_button 'Sign In'
+
   end
 
   scenario 'creates new question' do

@@ -3,7 +3,7 @@
 <%= @question.body %>
 <% @question.answers.each do|answer| %>
   <br>
-  <%= answer.votes.count %> <%= button_to "Vote", answer_votes_path(answer, user_id: current_user.id, answer_id: answer.id) %> <%= answer.body %>
+  <%= answer.votes.count %> <%= button_to "Vote", answer_votes_path(answer, user_id: current_user, answer_id: answer.id) %> <%= answer.body %>
   <br>
 <% end %>
 
