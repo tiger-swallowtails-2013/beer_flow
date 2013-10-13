@@ -8,7 +8,7 @@ BeerFlow::Application.routes.draw do
 
   resources :sessions, only: [:create]
   get 'login', to: 'sessions#new', as: 'new_session'
-  post 'logout', to: 'sessions#destroy'
+  get 'logout', to: 'sessions#destroy'
 
   root to: 'questions#index'
 
