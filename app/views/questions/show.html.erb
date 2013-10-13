@@ -1,10 +1,13 @@
 <%= @question.title %>
 <br>
 <%= @question.body %>
+
+<ul class="answers">
 <% @question.answers.each do|answer| %>
   <br>
-  <%= answer.votes.count %> <%= button_to "Vote", answer_votes_path(answer, user_id: current_user, answer_id: answer.id) %> <%= answer.body %>
+  <%= render 'answers/answer', :answer => answer %>
   <br>
 <% end %>
+</ul>
 
 <%= render partial: 'answers/inline_form' %>
