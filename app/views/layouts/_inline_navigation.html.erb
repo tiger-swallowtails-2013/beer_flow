@@ -1,4 +1,6 @@
-<%= link_to "Home", root_path %>
+<%= link_to root_path do %>
+	<i class="icon-beer"> Home</i>
+<% end %>
 <% if current_user.nil? %>
   <%= link_to "Login", {controller: "sessions", action: "new"} %>
   <%= link_to "Sign Up", {controller: "users", action: "new"} %>
