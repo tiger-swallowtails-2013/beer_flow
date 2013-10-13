@@ -2,8 +2,11 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(params[:answer])
-    @answer.save
-    redirect_to question_path(@answer.question)
+    if @answer.save
+      render :json => render_to_string(:partial => 'answer', :locals => {:answer => @answer}).to_json
+    else
+      redirect_to question_path(@answer.question)
+    end
   end
 
 end

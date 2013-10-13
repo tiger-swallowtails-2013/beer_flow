@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
     @question.save
-    redirect_to new_question_path
+    redirect_to question_path(@question)
   end
 
   def show

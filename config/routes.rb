@@ -4,7 +4,9 @@ BeerFlow::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'new_user'
 
   resources :questions, only: [:new, :create, :show, :index]
-  resources :answers, only: [:create]
+  resources :answers, only: [:create] do
+    resources :votes, only: [:create]
+  end
 
   resources :sessions, only: [:create]
   get 'login', to: 'sessions#new', as: 'new_session'
