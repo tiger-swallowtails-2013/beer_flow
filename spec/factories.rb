@@ -16,4 +16,9 @@ FactoryGirl.define do
     password "foobar"
     password_confirmation "foobar"
   end
+
+  factory :vote do
+    user
+    answer
+  end
 end
