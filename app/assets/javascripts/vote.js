@@ -7,7 +7,6 @@ var Answer = {
     $('.answers').append(data);
     this.reset();
   }
-
 }
 
 $(document).ready(function(){
