@@ -11,3 +11,35 @@
  *= require_self
  *= require_tree .
  */
+
+html{
+ 	background-image: url('/assets/wood.png');
+ }
+
+.navbar{
+	height: 24px;
+	width: 1000px;
+	padding: 10px;
+	background-color: #F3AF75;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.navbar a:link, a:visited{
+	text-decoration: none;
+	color: #713706;
+}
+.navbar a:hover{
+	text-decoration: none;
+	color: #117175;
+}
+
+.user-actions{
+	float: right;
+	width: auto;
+}
+
+.navigation-actions{
+	float: left;
+	width: auto;
+}
