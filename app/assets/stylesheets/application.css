@@ -16,6 +16,8 @@ html{
  	background-image: url('/assets/wood.png');
  }
 
+ /* Navigation */
+
 .navbar{
 	height: 24px;
 	width: 1000px;
@@ -25,11 +27,11 @@ html{
 	vertical-align: middle;
 }
 
-.navbar a:link, a:visited{
+a:link, a:visited{
 	text-decoration: none;
 	color: #713706;
 }
-.navbar a:hover{
+a:hover{
 	text-decoration: none;
 	color: #117175;
 }
@@ -42,4 +44,22 @@ html{
 .navigation-actions{
 	float: left;
 	width: auto;
+}
+
+/* Questions */
+
+ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.questions-list{
+	display: inline-block;
+}
+
+.question{
+	font-size: 18px;
+	padding: 6px;
+	margin: 4px;
 }

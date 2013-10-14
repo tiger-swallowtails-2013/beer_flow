@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'visitor navigation bar' do
   scenario "should link to home" do
     visit new_question_path
-    expect(page).to have_link('Home', href: '/')
+    expect(page).to have_link('BeerOverflow', href: '/')
   end
 
   scenario 'should link to signup form' do
