@@ -2,7 +2,7 @@
 
 	<span class="navigation-actions">
 		<%= link_to root_path do %>
-			<i class="icon-beer"> Home </i>
+			<i class="icon-beer"> BeerOverflow </i>
 		<% end %>
 	</span>
 	<span class="user-actions">
@@ -11,7 +11,7 @@
 		  	<i class="icon-signin"> Login </i>
 		  <% end %>
 		  <%= link_to controller: "users", action: "new" do %>
-		  	<i class="icon-user"> Register </i>
+		  	<i class="icon-user"> Sign Up </i>
 		  <% end %>
 		<% else %>
 		  <%= link_to controller: "sessions", action: "destroy" do %>
