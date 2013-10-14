@@ -3,7 +3,7 @@
 <%= @question.body %>
 
 <ul class="answers">
-<% @question.answers.each do|answer| %>
+<% @question.answers.sort.each do|answer| %>
   <br>
   <%= render 'answers/answer', :answer => answer %>
   <br>

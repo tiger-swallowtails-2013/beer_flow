@@ -1,9 +1,23 @@
-<%= link_to root_path do %>
-	<i class="icon-beer"> Home</i>
-<% end %>
-<% if current_user.nil? %>
-  <%= link_to "Login", {controller: "sessions", action: "new"} %>
-  <%= link_to "Sign Up", {controller: "users", action: "new"} %>
-<% else %>
-  <%= link_to "Logout", {controller: "sessions", action: "destroy"} %>
-<% end %>
+<div class="navbar">
+
+	<span class="navigation-actions">
+		<%= link_to root_path do %>
+			<i class="icon-beer"> Home </i>
+		<% end %>
+	</span>
+	<span class="user-actions">
+		<% if current_user.nil? %>
+		  <%= link_to controller: "sessions", action: "new" do %>
+		  	<i class="icon-signin"> Login </i>
+		  <% end %>
+		  <%= link_to controller: "users", action: "new" do %>
+		  	<i class="icon-user"> Register </i>
+		  <% end %>
+		<% else %>
+		  <%= link_to controller: "sessions", action: "destroy" do %>
+		  	<i class="icon-signout"> Logout </i>
+		  <% end %>
+		<% end %>
+	</span>
+
+</div>
